@@ -15,7 +15,7 @@ Before you begin, make sure you have the following:
 ## Setup
 
 1. **Include AWS SDK for Java in your project:**
-   - Add the necessary Maven or Gradle dependencies for AWS SDK for Java in your `pom.xml` or `build.gradle` file.
+   - Add the necessary Maven or Gradle dependencies for AWS SDK for Java in your `pom.xml` file.
 
 2. **Set up AWS Credentials:**
    - Ensure that your AWS credentials are configured either through environment variables, AWS credentials file, or IAM roles if running on AWS infrastructure.
