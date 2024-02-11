@@ -1,0 +1,8 @@
+{
+  "clientId": "XXXXXXXXXX",
+  "accessKey": "XXXXXXXXXX",
+  "secretKey": "XXXXXXXXXX",
+  "userPool": "XXXXXXXXXX",
+  "groups": "",
+  "accessToken": ""
+}
