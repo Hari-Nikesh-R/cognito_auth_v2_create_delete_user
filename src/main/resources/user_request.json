@@ -1,22 +1,70 @@
 [
   {
-    "username": "user1@example.com",
-    "password": "Password@112"
+    "username": "john@gmail.com",
+    "password": "Password@123",
+    "userAttributes": [
+      {
+        "name": "custom:role",
+        "value": "user"
+      },
+      {
+        "name": "custom:tenant_id",
+        "value": "another_tenant"
+      },
+      {
+        "name": "family_name",
+        "value": "Smith"
+      },
+      {
+        "name": "given_name",
+        "value": "Jane"
+      },
+      {
+        "name": "locale",
+        "value": "en_GB"
+      },
+      {
+        "name": "phone_number",
+        "value": "+9876543210"
+      },
+      {
+        "name": "zoneinfo",
+        "value": "GMT"
+      }
+    ]
   },
   {
-    "username": "user2@example.com",
-    "password": "Password@112"
-  },
-  {
-    "username": "user3@example.com",
-    "password": "Password@112"
-  },
-  {
-    "username": "user4@example.com",
-    "password": "Password@112"
-  },
-  {
-    "username": "user5@example.com",
-    "password": "Password@112"
+    "username": "another_user@gmail.com",
+    "password": "P@ssw0rd",
+    "userAttributes": [
+      {
+        "name": "custom:role",
+        "value": "admin"
+      },
+      {
+        "name": "custom:tenant_id",
+        "value": "example_tenant"
+      },
+      {
+        "name": "family_name",
+        "value": "Doe"
+      },
+      {
+        "name": "given_name",
+        "value": "John"
+      },
+      {
+        "name": "locale",
+        "value": "en_US"
+      },
+      {
+        "name": "phone_number",
+        "value": "+1234567890"
+      },
+      {
+        "name": "zoneinfo",
+        "value": "UTC"
+      }
+    ]
   }
 ]

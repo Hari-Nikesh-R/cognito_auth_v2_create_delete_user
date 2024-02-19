@@ -10,7 +10,6 @@ import com.amazonaws.services.cognitoidp.model.SignUpRequest;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.config.CognitoConfiguration;
-import org.example.model.CognitoAuthRequest;
 import org.example.model.CognitoProperties;
 
 import java.io.File;
@@ -24,7 +23,6 @@ public class CognitoRegisterService {
     private final AWSCognitoIdentityProvider cognitoUserPool;
     private final CognitoProperties config;
 
-    private final ObjectMapper mapper = new ObjectMapper();
 
     /**
      * Constructs a new CognitoRegisterService instance.
@@ -33,17 +31,6 @@ public class CognitoRegisterService {
     public CognitoRegisterService() throws IOException {
         this.config = CognitoConfiguration.getCognitoConfigurationInstance().getCognitoProperties();
         cognitoUserPool = CognitoConfiguration.getCognitoConfigurationInstance().getAWSCognitoIdentityProvider();
-    }
-
-    // deleting specific user
-    /**
-     * Deletes a specific user.
-     * @return a message indicating the deletion status
-     * @throws IOException if an I/O error occurs
-     */
-    public String deleteUser() throws IOException {
-        deleteUserByUsername();
-        return "USER_DELETED";
     }
 
 
@@ -79,7 +66,6 @@ public class CognitoRegisterService {
             adminConfirmSignUpRequest.setUsername(request.getUsername());
             adminConfirmSignUpRequest.setUserPoolId(config.getUserPool());
             request.setClientId(config.getClientId());
-            request.setUserAttributes(request.getUserAttributes());
             cognitoUserPool.signUp(request);
             cognitoUserPool.adminConfirmSignUp(adminConfirmSignUpRequest);
             return "User registered successfully";
@@ -91,22 +77,5 @@ public class CognitoRegisterService {
             return e.getMessage();
         }
     }
-
-    /**
-     * Deletes users by username specified in a delete_user_request JSON file.
-     * @throws IOException if an I/O error occurs
-     */
-    private void deleteUserByUsername() throws IOException {
-        File file = new File("src/main/resources/delete_user_request.json");
-        List<CognitoAuthRequest> cognitoAuthRequests = mapper.readValue(file, new TypeReference<List<CognitoAuthRequest>>() {
-        });
-        cognitoAuthRequests.forEach(req -> {
-            AdminDeleteUserRequest adminDeleteUserRequest = new AdminDeleteUserRequest();
-            adminDeleteUserRequest.setUsername(req.getUsername());
-            adminDeleteUserRequest.setUserPoolId(config.getUserPool());
-            cognitoUserPool.adminDeleteUser(adminDeleteUserRequest);
-        });
-    }
-
 
 }

@@ -65,7 +65,7 @@ public class CognitoConfiguration {
         BasicAWSCredentials credentials = new BasicAWSCredentials(cognitoProperties.getAccessKey(), cognitoProperties.getSecretKey());
 
         return AWSCognitoIdentityProviderClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(credentials)).withRegion(Regions.AP_SOUTHEAST_2)
+                .withCredentials(new AWSStaticCredentialsProvider(credentials)).withRegion(Regions.US_EAST_1)
                 .build();
     }
 
